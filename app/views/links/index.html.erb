@@ -1,0 +1,13 @@
+<%= form_tag '/links/show', remote: true, id: 'linker_form' do %>
+  ID: <%= text_field_tag :id %><br />
+  ID Type: <%= text_field_tag :id_type %><br />
+  Target Type: <%= text_field_tag :target %>
+  <%= hidden_field_tag :method %>
+<% end %>
+<%= button_tag 'Find Linked Identity', data: {behavior: 'find_linked_identity'} %><br />
+<%= button_tag 'Find Linked Identity with Details', data: {behavior: 'find_linked_identity_with_details'} %><br />
+<%= button_tag 'Find All Linked Identities', data: {behavior: 'find_all_linked_identities'} %><br />
+<%= button_tag 'Find All Linked Identities with Details', data: {behavior: 'find_all_linked_identities_with_details'} %><br />
+<%= button_tag 'Find Linked Identities of Type', data: {behavior: 'find_linked_identities_of_type'} %><br />
+<%= spinner %>
+<div id="results"></div>

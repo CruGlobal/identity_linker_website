@@ -1,0 +1,19 @@
+<% link = link_with_details %>
+<tr>
+  <td><%= link[:start][:id_type] + ': ' + link[:start][:id_value] %></td>
+  <td><%= link[:end][:id_type] + ': ' + link[:end][:id_value] %></td>
+  <td>
+    <ul>
+      <% Array.wrap(link[:strongest_chain][:links][:link]).each do |link| %>
+        <li>
+          <h3>Start</h3>
+          <%= link[:start].collect {|k, v| "<b>#{k}</b>: #{v}"}.join(', ').html_safe %><br />
+          <h3>End</h3> 
+          <%= link[:end].collect {|k, v| "<b>#{k}</b>: #{v}"}.join(', ').html_safe %><br />
+          <h3>Details</h3>
+          <%= link[:details].collect {|k, v| "<b>#{k}</b>: #{v}"}.join(', ').html_safe %>
+        </li>
+      <% end %>
+    </ul>
+  </td>
+</tr>

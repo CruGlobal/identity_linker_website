@@ -1,0 +1,21 @@
+<% if @links.is_a?(Hash) && @links[:error] %>
+  <%= @links[:error] %>
+<% else %>
+  <table border="1" cellspacing="0" cellpadding="5" style="margin-top:15px">
+    <% if params[:method].include?('details') %>
+      <tr>
+        <th>Start</th>
+        <th>End</th>
+        <th>Strongest Chain</th>
+      </tr>
+      <%= render partial: 'link_with_details', collection: Array.wrap(@links) %>
+    <% else %>
+      <tr>
+        <th>ID Type</th>
+        <th>ID Value</th>
+        <th>Confidence</th>
+      </tr>
+      <%= render partial: 'link', collection: Array.wrap(@links) %>
+    <% end %>
+  </table>
+<% end %>
