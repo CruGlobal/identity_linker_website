@@ -1,7 +1,7 @@
 <%= form_tag '/links/show', remote: true, id: 'linker_form' do %>
   ID: <%= text_field_tag :id %><br />
-  ID Type: <%= text_field_tag :id_type %><br />
-  Target Type: <%= text_field_tag :target %>
+  ID Type: <%= select_tag :id_type, options_for_select(%w{username ssoguid emplid mdmid siebelcontactid}) %><br />
+  Target Type: <%= select_tag :target, options_for_select(%w{username ssoguid emplid mdmid siebelcontactid}), include_blank: true %>
   <%= hidden_field_tag :method %>
 <% end %>
 <%= button_tag 'Find Linked Identity', data: {behavior: 'find_linked_identity'} %><br />
